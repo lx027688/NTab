@@ -51,10 +51,12 @@ const delShadow = () => {
 
 <style lang="scss" scoped>
 .imgBox {
-    --fontSize: calc(var(--icon-width) / 7);
+    --fontSize: 12px;
+    //--fontSize: calc(var(--icon-width) / 10);
     overflow: hidden;
     border-radius: 20%;
-    width: calc(100% - var(--fontSize) * 2);
+    //width: calc(100% - var(--fontSize) * 2);
+    width: 64px;
     margin: auto;
     aspect-ratio: 1 / 1;
 

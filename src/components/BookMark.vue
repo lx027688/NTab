@@ -176,7 +176,6 @@ let drop = (event: any, index: any) => {
 onMounted(() => {
     watch_change()
 
-
     function watch_change() {
         let Mark: any = document.getElementById('Mark')
 
@@ -324,7 +323,8 @@ onMounted(() => {
 }
 
 .bm_title {
-    --fontSize: calc(var(--icon-width) / 7);
+    --fontSize: 12px;
+    //--fontSize: calc(var(--icon-width) / 7);
     width: var(--icon-width);
     height: calc(var(--fontSize) * 2);
     line-height: calc(var(--fontSize) * 2);

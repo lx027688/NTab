@@ -24,25 +24,19 @@
                 <div>
                     <div class="setup_layout">
                         <div class="setup_layout_cols_slider">
-                            <n-slider v-model:value="store.XGN_SET.Layout_Cols" :marks="marks_cols" :step="1" :min="1"
-                                :max="8" />
+                            <n-slider v-model:value="store.XGN_SET.Layout_Cols" :marks="marks_cols" :step="1" :min="1" :max="14" />
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="setup_layout">
                         <div class="setup_layout_rows_slider">
-                            <n-slider v-model:value="store.XGN_SET.Layout_Rows" :marks="marks_rows" :step="1" :min="1"
-                                :max="4" vertical reverse />
+                            <n-slider v-model:value="store.XGN_SET.Layout_Rows" :marks="marks_rows" :step="1" :min="1" :max="6" vertical reverse />
                         </div>
                     </div>
                 </div>
-                <div class="layout_demo" :style="`
-                grid-template-columns: repeat(${XGN_SET.Layout_Cols},42px);
-                grid-template-rows: repeat(${XGN_SET.Layout_Rows},50px`">
-                    <div v-for="i in (XGN_SET.Layout_Rows * XGN_SET.Layout_Cols)">
-
-                    </div>
+                <div class="layout_demo" :style="`grid-template-columns: repeat(${XGN_SET.Layout_Cols},20px); rid-template-rows: repeat(${XGN_SET.Layout_Rows},24px`">
+                    <div v-for="i in (XGN_SET.Layout_Rows * XGN_SET.Layout_Cols)"></div>
                 </div>
             </div>
 
@@ -153,6 +147,8 @@ let marks_rows = {
     2: "2",
     3: "3",
     4: "4",
+    5: "5",
+    6: "6"
 }
 let marks_cols = {
     1: "1",
@@ -162,7 +158,13 @@ let marks_cols = {
     5: "5",
     6: "6",
     7: "7",
-    8: "8"
+    8: "8",
+    9: "9",
+    10: "10",
+    11: "11",
+    12: "12",
+    13: "13",
+    14: "14"
 }
 
 //【视图】
@@ -228,6 +230,8 @@ const select_dark_time_end = (value: number) => {
 
     .layout_demo {
         display: grid;
+        padding-top: 10px;
+        padding-left: 10px;
         grid-gap: 10px;
 
         // margin-top: 10px;
@@ -253,7 +257,7 @@ const select_dark_time_end = (value: number) => {
     }
 
     .setup_layout_rows_slider {
-        height: 240px;
+        height: 250px;
         box-sizing: border-box;
         padding: 10px;
     }

@@ -1,6 +1,7 @@
 export const EngineList:any = [
   {
     label: "bilibili",
+    value: "bilibili",
     key: "https://search.bilibili.com/all?keyword=",
     placeholder: "哔哩哔哩 (゜-゜)つロ 干杯~",
     img: "search_enging_img/bilibili.svg",
@@ -8,6 +9,7 @@ export const EngineList:any = [
   },
   {
     label: "Google",
+    value: "Google",
     key: "https://www.google.com/search?q=",
     placeholder: "Google搜索",
     img: "search_enging_img/google.svg",
@@ -15,6 +17,7 @@ export const EngineList:any = [
   },
   {
     label: "CSDN",
+    value: "CSDN",
     key: "https://so.csdn.net/so/search?q=",
     placeholder: "CSDN - 专业开发者社区",
     img: "search_enging_img/csdn.svg",
@@ -22,6 +25,7 @@ export const EngineList:any = [
   },
   {
     label: "百度",
+    value: "百度",
     key: "https://www.baidu.com/s?wd=",
     img: "search_enging_img/baidu.svg",
     placeholder: "百度一下，你就知道！",
@@ -29,6 +33,7 @@ export const EngineList:any = [
   },
   {
     label: "搜狗",
+    value: "搜狗",
     key: "https://www.sogou.com/web?query=",
     img: "search_enging_img/sougou.svg",
     placeholder: "搜狗搜索",
@@ -36,6 +41,7 @@ export const EngineList:any = [
   },
   {
     label: "必应",
+    value: "必应",
     key: "https://cn.bing.com/search?q=",
     img: "search_enging_img/bing.svg",
     placeholder: "必应搜索",
@@ -43,6 +49,7 @@ export const EngineList:any = [
   },
   {
     label: "知乎",
+    value: "知乎",
     key: "https://www.zhihu.com/search?q=",
     img: "search_enging_img/zhihu.svg",
     placeholder: "有问题，上知乎",
@@ -50,6 +57,7 @@ export const EngineList:any = [
   },
   {
     label: "微博",
+    value: "微博",
     key: "https://s.weibo.com/weibo?q=",
     placeholder: "随时随地发现新鲜事！",
     img: "search_enging_img/weibo.svg",
@@ -57,6 +65,7 @@ export const EngineList:any = [
   },
   {
     label: "豆瓣",
+    value: "豆瓣",
     key: "https://www.douban.com/search?q=",
     placeholder: "提供图书、电影、音乐唱片的推荐",
     img: "search_enging_img/douban.svg",
@@ -64,6 +73,7 @@ export const EngineList:any = [
   },
   {
     label: "Github",
+    value: "Github",
     key: "https://github.com/search?q=",
     placeholder: "Search or jump to...",
     img: "search_enging_img/github.svg",

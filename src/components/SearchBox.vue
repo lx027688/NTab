@@ -1,29 +1,25 @@
 <template>
     <n-el class="SearchStyle" :style="`transform: scale(${scale});`">
-        <div class="SearchEngingStyle" @click="SwitchModal_button">
-            <img :src="SearchEngine.img">
+      <n-popselect :options="EngineList" :render-label="renderLabel" @change="SwitchEngine">
+        <div class="SearchEngingStyle">
+          <img :src="SearchEngine.img">
         </div>
-        <input type="text" :placeholder="SearchEngine.placeholder" v-model="SearchContent" @keydown.enter="Search">
-        <n-modal v-model:show="SwitchModal_active" transform-origin="center">
-            <n-card
-                style="width: 90%; max-width: 800px;min-width:300px;"
-                :bordered="false" size="small" role="dialog" aria-modal="true">
-                <n-grid x-gap="6" y-gap="6" :cols="6">
-                    <n-gi v-for="item in EngineList" :key="item.name" class="Enging_item" @click="Switch_Engine(item)">
-                        <img :src="item.img">
-                        {{ item.label }}
-                    </n-gi>
-                </n-grid>
-            </n-card>
-        </n-modal>
+      </n-popselect>
+      <input type="text" :placeholder="SearchEngine.placeholder" v-model="SearchContent" @keydown.enter="Search">
+
+      <div class="SearchIconStyle">
+        <n-icon size="30" @click="Search">
+          <x-search />
+        </n-icon>
+      </div>
     </n-el>
 </template>
 
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { ref, h } from 'vue'
 import { NEl } from 'naive-ui'
-import { NModal, NCard } from 'naive-ui'
-import { NGrid, NGi } from 'naive-ui'
+import { Search as XSearch } from '@vicons/tabler'
+import { NPopselect, NIcon } from 'naive-ui'
 import { EngineList } from '../assets/EngineList' //搜索引擎列表
 import { mainStore } from '../store/index'
 import { storeToRefs } from 'pinia';
@@ -34,15 +30,33 @@ let { XGN_SET } = storeToRefs(store)// 解构出来【设置样式
 let SearchEngine: any = ref(XGN_SET.value.Search_Engine)
 //搜索引擎的切换窗口的状态
 let SwitchModal_active = ref(false)
-//搜索引擎切换窗口的打开按钮
-const SwitchModal_button = () => {
-    SwitchModal_active.value = true
+
+const renderLabel = (option: any) => {
+  return h('div',[
+    h('img', {
+      src: `${option.img}`,
+      style: {
+        width: '20px',
+        'margin-right': '10px'
+      }
+    }),
+    h('div', {
+      style: {
+        float: 'right'
+      }
+    },`${option.label}`),
+  ])
 }
+
 //切换搜索引擎
-const Switch_Engine = (item: object) => {
+const SwitchEngine = (value: object) => {
+  let engine = EngineList.filter(x=>x.value == value)
+  if (engine && engine.length > 0) {
+    let item = engine[0]
     SearchEngine.value = item
     XGN_SET.value.Search_Engine = item
     SwitchModal_active.value = false
+  }
 }
 //搜索！
 let SearchContent = ref('')
@@ -64,7 +78,7 @@ let scale = ref('1')
     height: 24%;
     min-height: 50px;
     display: flex;
-    border-radius: 6px;
+    border-radius: 50px;
     background-color: var(--body-color);
     box-shadow: 2px 2px 16px -6px #333;
     overflow: hidden;
@@ -105,24 +119,16 @@ input:hover {
     }
 }
 
-.Enging_item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow: hidden;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    aspect-ratio: 1 / 1;
-    cursor: pointer;
-    transition: all 0.5s;
-
-    &:hover {
-        border: 2px solid rgb(110, 169, 205);
-    }
-
-    img {
-        width: 36%;
-    }
+.SearchIconStyle {
+  width: 70px;
+  height: 100%;
+  background-color: var(--body-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  img {
+    height: 50%;
+  }
 }
 </style>

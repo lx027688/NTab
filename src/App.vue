@@ -9,6 +9,11 @@
         </n-button>
 
         <TransitionGroup name="show">
+
+          <div class="Clock_area">
+            <Clock/>
+          </div>
+
           <!-- 搜索栏 -->
           <div class="Search_area debut" v-if="store.XGN_SET.View_Search_Show">
             <SearchBox />
@@ -38,6 +43,7 @@ import { darkTheme, NConfigProvider, NGlobalStyle, NButton, NIcon } from 'naive-
 import { NDrawer, NDrawerContent } from 'naive-ui'
 
 import Side from './components/Side.vue'
+import Clock from './components/tools/Clock.vue'
 import SearchBox from './components/SearchBox.vue'
 import BookMark from './components/BookMark.vue'
 import { mainStore } from './store/index'
@@ -226,6 +232,18 @@ body {
 
 .secret {
   transform: scale(2);
+}
+
+//搜索框
+.Clock_area {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  // background-color: rgba(180, 89, 64, 0.5);
 }
 
 //搜索框

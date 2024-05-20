@@ -6,8 +6,8 @@ import { EngineList } from "../assets/EngineList"; //搜索引擎列表
 const XGN_SET_default = {
   Bg_Img: "./bg_img/scenery_01.png", //背景图片
   Bg_Color:'#333',//背景颜色
-  Layout_Cols: 8, //【布局】 横
-  Layout_Rows: 4, //【布局】竖
+  Layout_Cols: 14, //【布局】 横
+  Layout_Rows: 6, //【布局】竖
   Dark_Mode: "auto", //【暗黑模式】
   Dark_Start_Time: "18:00:00", //【暗黑模式】开始时间
   Dark_End_Time: "06:00:00", //【暗黑模式】结束时间
